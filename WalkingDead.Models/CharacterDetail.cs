@@ -1,32 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WalkingDead.Data;
 
-namespace WalkingDead.Data
+namespace WalkingDead.Models
 {
-    public class Character
+    public class CharacterDetail
     {
-        [Key]
         public int CharacterId { get; set; }
-        [Required]
+
+        [Display(Name = "Character")]
         public string Name { get; set; }
-        [Required]
+
+        [Display(Name = "Actor/Actress")]
         public string ActorName { get; set; }
-        [Required]
-        public Guid UserId { get; set; }
-        [Required]
+
+        [Display(Name = "Season introduced")]
         public Season Created { get; set; }
 
+        [Display(Name = "Season died")]
         public Season Expired { get; set; }
-
-        [ForeignKey(nameof(DetailId))]
-        public int DetailId { get; set; }
-        public virtual Detail Details { get; set; }
-
     }
-
 }
