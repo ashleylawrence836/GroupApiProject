@@ -44,8 +44,6 @@
   <ItemGroup>
     <Compile Include="CharacterCreate.cs" />
     <Compile Include="CharacterDetail.cs" />
-    <Compile Include="DetailCreate.cs" />
-    <Compile Include="DetailDetail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeasonCreate.cs" />
     <Compile Include="SeasonDetail.cs" />
