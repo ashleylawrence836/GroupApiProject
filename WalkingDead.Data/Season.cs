@@ -16,5 +16,7 @@ namespace WalkingDead.Data
         [Required]
         public string Location { get; set; }
         public virtual List<Episode> Episodes { get; set; } = new List<Episode>();
+        [Required]
+        public Guid AddedByUserId { get; set; }
     }
 }
