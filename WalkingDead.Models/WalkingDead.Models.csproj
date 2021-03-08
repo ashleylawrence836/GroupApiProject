@@ -87,6 +87,9 @@
     <Compile Include="CharacterCreate.cs" />
     <Compile Include="CharacterDetail.cs" />
     <Compile Include="CharacterEdit.cs" />
+    <Compile Include="EpisodeCreate.cs" />
+    <Compile Include="EpisodeDetail.cs" />
+    <Compile Include="EpisodeUpdate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeasonCreate.cs" />
     <Compile Include="SeasonDetail.cs" />

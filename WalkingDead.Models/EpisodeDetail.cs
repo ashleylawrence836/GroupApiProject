@@ -1,27 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WalkingDead.Data
+namespace WalkingDead.Models
 {
-    public class Episode
+    public class EpisodeDetail
     {
-        [Key]
+        [Display(Name = "Episode")]
         public int EpisodeId { get; set; }
-        [Required]
+        [Display(Name = "Episode Title")]
         public string Title { get; set; }
-        [Required]
+        [Display(Name = "Episode Desc")]
         public string Description { get; set; }
-        [Required]
+        [Display(Name = "Aired On")]
         public DateTime AirDate { get; set; }
-        [Required]
-        public Guid AddedByUserID { get; set; }
-        //[Required]
-        //[ForeignKey(nameof(SeasonId))]
-        //public int SeasonId { get; set; }
     }
 }
