@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,17 +10,13 @@ namespace WalkingDead.Data
     public class Character
     {
         [Key]
-        public int CharacterId { get; set; }
-        [Required]
+        [Display(Name = "Character")]
         public string Name { get; set; }
         [Required]
-        public string ActorName { get; set; }
+        public Guid UserId { get; set; }
         [Required]
-        public Guid AddedByUserId { get; set; }
-        [Required]
-        public string Features { get; set; }
-        [Required]
-        public string WeaponOfChoice { get; set; }
+        public DateTimeOffset Created { get; set; }
+        public DateTimeOffset Expired { get; set; }
 
     }
 
