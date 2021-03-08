@@ -9,6 +9,8 @@ namespace WalkingDead.Models
 {
     public class EpisodeDetail
     {
+        [Display(Name = "Season")]
+        public int SeasonId { get; set; }
         [Display(Name = "Episode")]
         public int EpisodeId { get; set; }
         [Display(Name = "Episode Title")]

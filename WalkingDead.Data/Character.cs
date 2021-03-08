@@ -19,14 +19,13 @@ namespace WalkingDead.Data
         [Required]
         public Guid UserId { get; set; }
         [Required]
-        public Season Created { get; set; }
-        [Required]
-        public Season Expired { get; set; }
+        [ForeignKey(nameof(Episode))]
+        public int EpisodeId { get; set; }
+        public virtual Episode Episode { get; set; }
         [Required]
         public string Details { get; set; }
         [Required]
         public string WeaponOfChoice { get; set; }
-
     }
 
 }
