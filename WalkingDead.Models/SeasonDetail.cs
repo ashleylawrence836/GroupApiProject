@@ -15,7 +15,5 @@ namespace WalkingDead.Models
         [Display(Name = "Location")]
         public string Location { get; set; }
 
-        [Display(Name = "Aired")]
-        public DateTimeOffset Aired { get; set; }
     }
 }
