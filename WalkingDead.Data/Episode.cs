@@ -10,6 +10,7 @@ namespace WalkingDead.Data
 {
     public class Episode
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Key]
         public int EpisodeId { get; set; }
         [Required]
