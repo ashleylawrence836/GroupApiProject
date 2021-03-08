@@ -18,10 +18,8 @@ namespace WalkingDead.Models
         [Display(Name = "Actor/Actress")]
         public string ActorName { get; set; }
 
-        [Display(Name = "Season introduced")]
-        public Season Created { get; set; }
-
-        [Display(Name = "Season died")]
-        public Season Expired { get; set; }
+        [Display(Name = "Character Features")]
+        public string Features { get; set; }
+        public string WeaponOfChoice { get; set; }
     }
 }
