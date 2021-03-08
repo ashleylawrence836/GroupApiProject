@@ -51,22 +51,14 @@ namespace WalkingDead.Services
             }
         }
 
-        public EpisodeDetail GetEpisodeByID(int episodeID)
+        public Episode GetEpisodeByID(int episodeID)
         {
             using (var context = new ApplicationDbContext())
             {
                 Episode episode = context.Episodes.Single
                     (e => e.EpisodeId == episodeID);
 
-                EpisodeDetail episodeDetail = new EpisodeDetail()
-                {
-                    EpisodeId = episode.EpisodeId,
-                    Title = episode.Title,
-                    Description = episode.Description,
-                    AirDate = episode.AirDate
-                };
-
-                return episodeDetail;
+                return episode;
             }
         }
 

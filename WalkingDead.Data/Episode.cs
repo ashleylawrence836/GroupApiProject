@@ -20,8 +20,9 @@ namespace WalkingDead.Data
         public DateTime AirDate { get; set; }
         [Required]
         public Guid AddedByUserID { get; set; }
-        //[Required]
-        //[ForeignKey(nameof(SeasonId))]
-        //public int SeasonId { get; set; }
+        [Required]
+        [ForeignKey(nameof(Season))]
+        public int SeasonId { get; set; }
+        public virtual Season Season { get; set; }
     }
 }
