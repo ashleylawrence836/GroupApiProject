@@ -20,12 +20,12 @@ namespace WalkingDead.Data
         public Guid UserId { get; set; }
         [Required]
         public Season Created { get; set; }
-
+        [Required]
         public Season Expired { get; set; }
-
-        [ForeignKey(nameof(DetailId))]
-        public int DetailId { get; set; }
-        public virtual Detail Details { get; set; }
+        [Required]
+        public string Details { get; set; }
+        [Required]
+        public string WeaponOfChoice { get; set; }
 
     }
 
