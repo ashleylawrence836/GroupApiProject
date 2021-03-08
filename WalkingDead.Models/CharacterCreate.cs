@@ -10,10 +10,11 @@ namespace WalkingDead.Models
 {
     public class CharacterCreate
     {
+        [Required]
         public string Name { get; set; }
         public string ActorName { get; set; }
-        public Season Created { get; set; }
-        public Season Expired { get; set; }
+        public string Features { get; set; }
+        public string WeaponOfChoice { get; set; }
 
     }
 }
