@@ -13,8 +13,6 @@ namespace WalkingDead.Data
         public int SeasonId { get; set; }
         [Required]
         public string Location { get; set; }
-        [Required]
-        public DateTimeOffset Aired { get; set; }
 
     }
 }
