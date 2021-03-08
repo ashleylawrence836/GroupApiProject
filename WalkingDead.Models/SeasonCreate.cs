@@ -11,6 +11,5 @@ namespace WalkingDead.Models
     {
         public int SeasonId { get; set; }
         public string Location { get; set; }
-        public DateTimeOffset Aired { get; set; }
     }
 }

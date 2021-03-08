@@ -13,6 +13,7 @@ namespace WalkingDead.Data
         public int SeasonId { get; set; }
         [Required]
         public string Location { get; set; }
-
+        [Required]
+        public Guid AddedByUserId { get; set; }
     }
 }
