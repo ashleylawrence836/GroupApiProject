@@ -24,12 +24,12 @@ namespace WalkingDead.Data
         public string WeaponOfChoice { get; set; }
 
         [Required]
-        [ForeignKey(nameof(FirstAppearance))]
-        public int FirstEpisodeId { get; set; }
+        [ForeignKey("FirstAppearance")]
+        public int? FirstEpisodeId { get; set; }
         public virtual Episode FirstAppearance { get; set; }
         [Required]
-        [ForeignKey(nameof(LastAppearance))]
-        public int LastEpisodeId { get; set; }
+        [ForeignKey("LastAppearance")]
+        public int? LastEpisodeId { get; set; }
         public virtual Episode LastAppearance { get; set; }
     }
 

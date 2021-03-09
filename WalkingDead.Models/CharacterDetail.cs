@@ -16,9 +16,9 @@ namespace WalkingDead.Models
         [Display(Name = "Actor/Actress")]
         public string ActorName { get; set; }
         [Display(Name = "Season introduced")]
-        public int FirstEpisodeId { get; set; }
+        public int? FirstEpisodeId { get; set; }
         [Display(Name = "Last Appearance")]
-        public int LastEpisodeId { get; set; }
+        public int? LastEpisodeId { get; set; }
         [Display(Name = "Character Description")]
         public string Details { get; set; }
         public string WeaponOfChoice { get; set; }

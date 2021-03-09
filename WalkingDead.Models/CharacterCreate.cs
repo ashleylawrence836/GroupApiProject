@@ -13,7 +13,6 @@ namespace WalkingDead.Models
         [Required]
         public string Name { get; set; }
         public string ActorName { get; set; }
-        public string Features { get; set; }
         public string WeaponOfChoice { get; set; }
         public string Details { get; set; }
         public int FirstEpisodeId { get; set; }

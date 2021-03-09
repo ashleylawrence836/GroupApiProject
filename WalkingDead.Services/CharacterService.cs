@@ -53,7 +53,9 @@ namespace WalkingDead.Services
                                     Name = e.Name,
                                     ActorName = e.ActorName,
                                     WeaponOfChoice = e.WeaponOfChoice,
-                                    Details = e.Details
+                                    Details = e.Details,
+                                    FirstEpisodeId = e.FirstEpisodeId,
+                                    LastEpisodeId = e.LastEpisodeId,
                                 });
                 return query.ToArray();
             }
