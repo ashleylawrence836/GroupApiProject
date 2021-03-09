@@ -23,8 +23,8 @@ namespace WalkingDead.Services
             Episode newEpisode = new Episode()
             {
                 EpisodeId = episode.EpisodeId,
-                Title = episode.EpisodeTitle,
-                Description = episode.EpisodeDescription,
+                Title = episode.Title,
+                Description = episode.Description,
                 AirDate = episode.AirDate,
                 SeasonId = episode.SeasonId,
                 AddedByUserID = _userID
@@ -71,14 +71,14 @@ namespace WalkingDead.Services
                 Episode updateEpisode = context.Episodes.Single
                     (u => u.EpisodeId == episodeId && u.AddedByUserID == _userID);
 
-                if (episode.EpisodeTitle != null)
+                if (episode.Title != null)
                 {
-                    updateEpisode.Title = episode.EpisodeTitle;
+                    updateEpisode.Title = episode.Title;
                 }
 
-                if (episode.EpisodeDescription != null)
+                if (episode.Description != null)
                 {
-                    updateEpisode.Description = episode.EpisodeDescription;
+                    updateEpisode.Description = episode.Description;
                 }
 
                 updateEpisode.AirDate = episode.AirDate;

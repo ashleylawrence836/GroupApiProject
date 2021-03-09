@@ -23,10 +23,13 @@ namespace WalkingDead.Services
             var entity =
                 new Character()
                 {
+                    AddedByUserId = _userId,
                     Name = model.Name,
                     ActorName = model.ActorName,
                     WeaponOfChoice = model.WeaponOfChoice,
-                    Features = model.Features
+                    Details = model.Details,
+                    FirstEpisodeId = model.FirstEpisodeId,
+                    LastEpisodeId = model.LastEpisodeId
                 };
 
             using (var context = new ApplicationDbContext())
@@ -50,7 +53,9 @@ namespace WalkingDead.Services
                                     Name = e.Name,
                                     ActorName = e.ActorName,
                                     WeaponOfChoice = e.WeaponOfChoice,
-                                    Features = e.Features
+                                    Details = e.Details,
+                                    FirstEpisodeId = e.FirstEpisodeId,
+                                    LastEpisodeId = e.LastEpisodeId,
                                 });
                 return query.ToArray();
             }
@@ -70,7 +75,7 @@ namespace WalkingDead.Services
                         Name = entity.Name,
                         ActorName = entity.ActorName,
                         WeaponOfChoice = entity.WeaponOfChoice,
-                        Features = entity.Features
+                        Details = entity.Details
                     };
             }
         }
@@ -87,7 +92,7 @@ namespace WalkingDead.Services
                 entity.Name = model.Name;
                 entity.ActorName = model.ActorName;
                 entity.WeaponOfChoice = model.WeaponOfChoice;
-                entity.Features = model.Features;
+                entity.Details = model.Features;
 
                 return ctx.SaveChanges() == 1;
 

@@ -90,12 +90,36 @@
     <Compile Include="Character.cs" />
     <Compile Include="Episode.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\202103091452122_InitialCreate.cs" />
+    <Compile Include="Migrations\202103091452122_InitialCreate.designer.cs">
+      <DependentUpon>202103091452122_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103091923497_fixedforeignkeys.cs" />
+    <Compile Include="Migrations\202103091923497_fixedforeignkeys.designer.cs">
+      <DependentUpon>202103091923497_fixedforeignkeys.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103091938272_tryingforeignkeys.cs" />
+    <Compile Include="Migrations\202103091938272_tryingforeignkeys.designer.cs">
+      <DependentUpon>202103091938272_tryingforeignkeys.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Season.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202103091452122_InitialCreate.resx">
+      <DependentUpon>202103091452122_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103091923497_fixedforeignkeys.resx">
+      <DependentUpon>202103091923497_fixedforeignkeys.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103091938272_tryingforeignkeys.resx">
+      <DependentUpon>202103091938272_tryingforeignkeys.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
