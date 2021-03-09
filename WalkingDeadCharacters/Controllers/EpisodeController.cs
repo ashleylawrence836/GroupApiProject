@@ -76,7 +76,7 @@ namespace WalkingDeadCharacters.Controllers
         }
 
         [HttpPut]
-        public IHttpActionResult PutEpisode(EpisodeUpdate episode)
+        public IHttpActionResult PutEpisode([FromBody] EpisodeUpdate episode, int episodeId)
         {
             if (!ModelState.IsValid)
             {
@@ -85,14 +85,14 @@ namespace WalkingDeadCharacters.Controllers
 
             EpisodeService episodeService = CreateService();
 
-            Episode updateEpisode = episodeService.GetEpisodeByID(episode.EpisodeId);
+            Episode updateEpisode = episodeService.GetEpisodeByID(episodeId);
 
             if (updateEpisode == default)
             {
                 return NotFound();
             }
 
-            if (!episodeService.UpdateEpisode(episode))
+            if (!episodeService.UpdateEpisode(episode, episodeId))
             {
                 return InternalServerError();
             }
@@ -101,7 +101,7 @@ namespace WalkingDeadCharacters.Controllers
         }
 
         [HttpDelete]
-        public IHttpActionResult DeleteEpisode([FromUri]int episodeId)
+        public IHttpActionResult DeleteEpisode(int episodeId)
         {
             EpisodeService episodeService = CreateService();
 

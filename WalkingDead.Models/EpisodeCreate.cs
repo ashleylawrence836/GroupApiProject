@@ -10,6 +10,8 @@ namespace WalkingDead.Models
     public class EpisodeCreate
     {
         [Required]
+        public int SeasonId { get; set; }
+        [Required]
         public int EpisodeId { get; set; }
         [Required]
         public string EpisodeTitle { get; set; }
