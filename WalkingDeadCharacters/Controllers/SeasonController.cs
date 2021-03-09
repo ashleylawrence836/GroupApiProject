@@ -39,6 +39,35 @@ namespace WalkingDeadCharacters.Controllers
             return Ok();
         }
 
+        public IHttpActionResult Get(int id)
+        {
+            SeasonService seasonService = CreateSeasonService();
+            var season = seasonService.GetSeasonById(id);
+            return Ok(season);
+        }
+
+        public IHttpActionResult Put(SeasonEdit season)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var service = CreateSeasonService();
+
+            if (!service.UpdateSeason(season))
+                return InternalServerError();
+
+            return Ok();
+        }
+
+        public IHttpActionResult Delete(int id)
+        {
+            var service = CreateSeasonService();
+
+            if (!service.DeleteSeason(id))
+                return InternalServerError();
+
+            return Ok();
+        }
     }
 
 }

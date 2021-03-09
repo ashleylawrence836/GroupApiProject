@@ -52,6 +52,57 @@ namespace WalkingDead.Services
             }
 
         }
-    }
 
+        public SeasonDetail GetSeasonById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Seasons
+                    .Single(e => e.SeasonId == id);
+                return
+                    new SeasonDetail
+                    {
+                        SeasonId = entity.SeasonId,
+                        Location = entity.Location
+                    };
+            }
+        }
+
+        public bool UpdateSeason(SeasonEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+
+
+                var entity =
+                    ctx
+                    .Seasons
+                    .Single(e => e.SeasonId == model.SeasonId);
+
+                entity.SeasonId = model.SeasonId;
+                entity.Location = model.Location;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteSeason(int seasonId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Seasons
+                    .Single(e => e.SeasonId == seasonId);
+
+                ctx.Seasons.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+    }
 }
+
+
