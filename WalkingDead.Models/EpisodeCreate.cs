@@ -14,9 +14,9 @@ namespace WalkingDead.Models
         [Required]
         public int EpisodeId { get; set; }
         [Required]
-        public string EpisodeTitle { get; set; }
+        public string Title { get; set; }
         [Required]
-        public string EpisodeDescription { get; set; }
+        public string Description { get; set; }
         [Required]
         public DateTime AirDate { get; set; }
     }

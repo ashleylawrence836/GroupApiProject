@@ -23,6 +23,7 @@ namespace WalkingDead.Services
             var entity =
                 new Season()
                 {
+                    SeasonId = model.SeasonId,
                     Location = model.Location
                 };
 

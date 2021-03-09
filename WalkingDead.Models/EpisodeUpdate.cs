@@ -10,8 +10,8 @@ namespace WalkingDead.Models
     public class EpisodeUpdate
     {
         public int EpisodeId { get; set; }
-        public string EpisodeTitle { get; set; }
-        public string EpisodeDescription { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
         [Required]
         public DateTime AirDate { get; set; }
     }

@@ -15,6 +15,8 @@ namespace WalkingDead.Models
         public string ActorName { get; set; }
         public string Features { get; set; }
         public string WeaponOfChoice { get; set; }
-
+        public string Details { get; set; }
+        public int FirstEpisodeId { get; set; }
+        public int LastEpisodeId { get; set; }
     }
 }

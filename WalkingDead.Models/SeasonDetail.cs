@@ -15,5 +15,6 @@ namespace WalkingDead.Models
         [Display(Name = "Location")]
         public string Location { get; set; }
 
+
     }
 }
