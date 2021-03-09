@@ -60,7 +60,7 @@ namespace WalkingDead.Services
                 var entity =
                     ctx
                     .Seasons
-                    .Single(e => e.SeasonId == id && e.AddedByUserId == _userId);
+                    .Single(e => e.SeasonId == id);
                 return
                     new SeasonDetail
                     {
@@ -79,7 +79,7 @@ namespace WalkingDead.Services
                 var entity =
                     ctx
                     .Seasons
-                    .Single(e => e.SeasonId == model.SeasonId && e.AddedByUserId == _userId);
+                    .Single(e => e.SeasonId == model.SeasonId);
 
                 entity.SeasonId = model.SeasonId;
                 entity.Location = model.Location;
@@ -95,7 +95,7 @@ namespace WalkingDead.Services
                 var entity =
                     ctx
                     .Seasons
-                    .Single(e => e.SeasonId == seasonId && e.AddedByUserId == _userId);
+                    .Single(e => e.SeasonId == seasonId);
 
                 ctx.Seasons.Remove(entity);
 
