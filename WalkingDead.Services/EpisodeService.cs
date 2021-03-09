@@ -26,6 +26,7 @@ namespace WalkingDead.Services
                 Title = episode.EpisodeTitle,
                 Description = episode.EpisodeDescription,
                 AirDate = episode.AirDate,
+                SeasonId = episode.SeasonId,
                 AddedByUserID = _userID
             };
             using (var context = new ApplicationDbContext())
@@ -41,6 +42,7 @@ namespace WalkingDead.Services
             {
                 var query = context.Episodes.Select(e => new EpisodeDetail
                 {
+                    SeasonId = e.SeasonId,
                     EpisodeId = e.EpisodeId,
                     Description = e.Description,
                     Title = e.Title,
@@ -62,12 +64,12 @@ namespace WalkingDead.Services
             }
         }
 
-        public bool UpdateEpisode(EpisodeUpdate episode)
+        public bool UpdateEpisode(EpisodeUpdate episode, int episodeId)
         {
             using (var context = new ApplicationDbContext())
             {
                 Episode updateEpisode = context.Episodes.Single
-                    (u => u.EpisodeId == episode.EpisodeId && u.AddedByUserID == _userID);
+                    (u => u.EpisodeId == episodeId && u.AddedByUserID == _userID);
 
                 if (episode.EpisodeTitle != null)
                 {
@@ -79,10 +81,7 @@ namespace WalkingDead.Services
                     updateEpisode.Description = episode.EpisodeDescription;
                 }
 
-                if (episode.AirDate != null)
-                {
-                    updateEpisode.AirDate = episode.AirDate;
-                }
+                updateEpisode.AirDate = episode.AirDate;
 
                 return context.SaveChangesAsync().Result > 0;
             }
