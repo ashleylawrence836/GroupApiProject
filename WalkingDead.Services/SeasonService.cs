@@ -46,9 +46,20 @@ namespace WalkingDead.Services
                         new SeasonDetail
                         {
                             SeasonId = e.SeasonId,
-                            Location = e.Location
+                            Location = e.Location,
+                            Episodes = ctx.Episodes.Where(s => s.SeasonId == e.SeasonId).
+                            Select(s =>
+                            new EpisodeDetail
+                            {
+                                SeasonId = s.SeasonId,
+                                EpisodeId = s.EpisodeId,
+                                Title = s.Title,
+                                Description = s.Description,
+                                AirDate = s.AirDate
+                            }).ToList()
                         });
-                return query.ToArray();
+
+                return query.ToList();
             }
 
         }
