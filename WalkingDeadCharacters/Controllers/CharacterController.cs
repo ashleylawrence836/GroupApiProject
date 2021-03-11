@@ -38,8 +38,8 @@ namespace WalkingDeadCharacters.Controllers
         private CharacterService CreateCharacterService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var noteService = new CharacterService(userId);
-            return noteService;
+            var characterService = new CharacterService(userId);
+            return characterService;
         }
 
         public IHttpActionResult Get(int id)
@@ -49,14 +49,14 @@ namespace WalkingDeadCharacters.Controllers
             return Ok(character);
         }
 
-        public IHttpActionResult Put(CharacterEdit character)
+        public IHttpActionResult Put(CharacterEdit character, int id)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             var service = CreateCharacterService();
 
-            if (!service.UpdateCharacter(character))
+            if (!service.UpdateCharacter(character, id))
                 return InternalServerError();
 
             return Ok();

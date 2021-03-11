@@ -97,6 +97,13 @@
       <Project>{f696bdd6-ae1b-42d5-a8ed-cbeb5f801335}</Project>
       <Name>WalkingDead.Services</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WalkingDeadCharacters\WalkingDead.API.csproj">
+      <Project>{36150332-eea4-4818-aa23-a7b36401cd17}</Project>
+      <Name>WalkingDead.API</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
