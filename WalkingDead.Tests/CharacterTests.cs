@@ -28,6 +28,10 @@ namespace WalkingDead.Tests
             CharacterCreate testCharacterOne = new CharacterCreate();
             testCharacterOne.Name = "Rick Grimes";
             testCharacterOne.ActorName = "Andrew Lincoln";
+            testCharacterOne.WeaponOfChoice = "Gun";
+            testCharacterOne.Details = "Kind of a grump";
+            testCharacterOne.FirstEpisodeId = 1;
+            testCharacterOne.LastEpisodeId = 1;
 
             bool wasAdded = characterService.CreateCharacter(testCharacterOne);
 
@@ -44,7 +48,7 @@ namespace WalkingDead.Tests
 
             CharacterDetail actualCharacter = characterService.GetCharacterById(1);
 
-            Assert.AreEqual(actualCharacter.ActorName, testCharacterOne.ActorName);
+            Assert.AreEqual(testCharacterOne.ActorName, actualCharacter.ActorName);
 
         }
 
