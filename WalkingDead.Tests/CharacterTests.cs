@@ -22,7 +22,7 @@ namespace WalkingDead.Tests
 
         [TestMethod]
 
-        public void TestAddCharacter()
+        public void TestAddandDeleteCharacter()
         {
             var characterService = CreateCharacterService();
             CharacterCreate testCharacterOne = new CharacterCreate();
@@ -36,22 +36,33 @@ namespace WalkingDead.Tests
             bool wasAdded = characterService.CreateCharacter(testCharacterOne);
 
             Assert.IsTrue(wasAdded);
-            
+
+            bool wasDeleted = characterService.DeleteCharacter(3);
+
+            Assert.IsTrue(wasDeleted);
+
         }
 
-        public void TestGetCharacterById()
+
+        [TestMethod]
+        public void AddCharacter()
         {
             var characterService = CreateCharacterService();
-            CharacterDetail testCharacterOne = new CharacterDetail();
+            CharacterCreate testCharacterOne = new CharacterCreate();
             testCharacterOne.Name = "Rick Grimes";
             testCharacterOne.ActorName = "Andrew Lincoln";
+            testCharacterOne.WeaponOfChoice = "Gun";
+            testCharacterOne.Details = "Kind of a grump";
+            testCharacterOne.FirstEpisodeId = 2;
+            testCharacterOne.LastEpisodeId = 2;
 
-            CharacterDetail actualCharacter = characterService.GetCharacterById(1);
+            bool wasAdded = characterService.CreateCharacter(testCharacterOne);
 
-            Assert.AreEqual(testCharacterOne.ActorName, actualCharacter.ActorName);
+            Assert.IsTrue(wasAdded);
 
         }
 
+        [TestMethod]
         public void TestGetCharacters()
         {
             var characterService = CreateCharacterService();
@@ -64,24 +75,36 @@ namespace WalkingDead.Tests
             Assert.AreEqual(1, actualCharacters.Count);
 
         }
-        
-        public void TestUpdateandDeleteCharacter()
+
+        [TestMethod]
+        public void TestGetCharacterById()
         {
             var characterService = CreateCharacterService();
-            CharacterEdit testCharacterOne = new CharacterEdit();
+            CharacterDetail testCharacterOne = new CharacterDetail();
             testCharacterOne.Name = "Rick Grimes";
             testCharacterOne.ActorName = "Andrew Lincoln";
-        
-            bool wasUpdated = characterService.UpdateCharacter(testCharacterOne, 1);
 
-            Assert.IsTrue(wasUpdated);
+            CharacterDetail actualCharacter = characterService.GetCharacterById(4);
 
-            bool wasDeleted = characterService.DeleteCharacter(1);
-            
-            Assert.IsTrue(wasDeleted);
+            Assert.AreEqual(testCharacterOne.ActorName, actualCharacter.ActorName);
 
         }
+
+        [TestMethod]
+        public void TestUpdateMethod()
+        {
+            var characterService = CreateCharacterService();
+            CharacterEdit testCharacterOne = new CharacterEdit(
+                "Rick Sanchez",
+                "Andrew Lincoln",
+                "Leader",
+                "Gun");
+
+            Assert.IsTrue(characterService.UpdateCharacter(testCharacterOne, 2));
+        }
+
     }
 }
+
 
 

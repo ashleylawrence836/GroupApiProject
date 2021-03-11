@@ -29,7 +29,7 @@ namespace WalkingDead.Tests
             EpisodeCreate testEpisode = new EpisodeCreate()
             {
                 SeasonId = 1,
-                EpisodeId = 1,
+                EpisodeId = 2,
                 Title = "Days Gone",
                 Description = "This is a test",
                 AirDate = DateTime.Now

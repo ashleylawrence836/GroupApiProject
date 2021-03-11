@@ -52,6 +52,7 @@ namespace WalkingDead.Services
                             e =>
                                 new CharacterDetail
                                 {
+                                    CharacterId = e.CharacterId,
                                     Name = e.Name,
                                     ActorName = e.ActorName,
                                     WeaponOfChoice = e.WeaponOfChoice,
@@ -83,19 +84,19 @@ namespace WalkingDead.Services
         }
 
 
-        public bool UpdateCharacter(CharacterEdit model, int id)
+        public bool UpdateCharacter(CharacterEdit model, int Id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .Characters
-                        .Single(e => e.CharacterId == id && e.AddedByUserId == _userId);
+                        .Single(e => e.CharacterId == Id && e.AddedByUserId == _userId);
 
                 entity.Name = model.Name;
                 entity.ActorName = model.ActorName;
                 entity.WeaponOfChoice = model.WeaponOfChoice;
-                entity.Details = model.Features;
+                entity.Details = model.Details;
 
                 return ctx.SaveChanges() == 1;
 
