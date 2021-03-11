@@ -17,8 +17,16 @@ namespace WalkingDead.Models
         [Display(Name = "Actor/Actress")]
         public string ActorName { get; set; }
 
-        [Display(Name = "Character Features")]
-        public string Features { get; set; }
+        public string Details { get; set; }
         public string WeaponOfChoice { get; set; }
+
+        public CharacterEdit () { }
+
+        public CharacterEdit (string name, string actorName, string details, string weaponOfChoice ) { Name = name;
+            ActorName = actorName;
+            Details = details;
+            WeaponOfChoice = weaponOfChoice;
+        }
+        
     }
 }

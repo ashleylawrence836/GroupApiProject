@@ -90,9 +90,9 @@
     <Compile Include="Character.cs" />
     <Compile Include="Episode.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202103111931563_Initial.cs" />
-    <Compile Include="Migrations\202103111931563_Initial.designer.cs">
-      <DependentUpon>202103111931563_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\202103112130066_again.cs" />
+    <Compile Include="Migrations\202103112130066_again.designer.cs">
+      <DependentUpon>202103112130066_again.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -103,8 +103,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202103111931563_Initial.resx">
-      <DependentUpon>202103111931563_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202103112130066_again.resx">
+      <DependentUpon>202103112130066_again.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

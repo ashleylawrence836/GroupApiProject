@@ -49,14 +49,14 @@ namespace WalkingDeadCharacters.Controllers
             return Ok(character);
         }
 
-        public IHttpActionResult Put(CharacterEdit character, int id)
+        public IHttpActionResult Put(CharacterEdit character, int Id)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             var service = CreateCharacterService();
 
-            if (!service.UpdateCharacter(character, id))
+            if (!service.UpdateCharacter(character, Id))
                 return InternalServerError();
 
             return Ok();

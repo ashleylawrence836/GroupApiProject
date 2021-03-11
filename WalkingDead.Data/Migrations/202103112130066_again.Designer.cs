@@ -7,13 +7,13 @@ namespace WalkingDead.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class Initial : IMigrationMetadata
+    public sealed partial class again : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(again));
         
         string IMigrationMetadata.Id
         {
-            get { return "202103111931563_Initial"; }
+            get { return "202103112130066_again"; }
         }
         
         string IMigrationMetadata.Source
