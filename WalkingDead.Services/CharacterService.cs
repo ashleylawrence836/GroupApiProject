@@ -9,7 +9,7 @@ using WalkingDeadCharacters.Data;
 
 namespace WalkingDead.Services
 {
-   public class CharacterService
+    public class CharacterService
     {
         private readonly Guid _userId;
 
@@ -17,6 +17,8 @@ namespace WalkingDead.Services
         {
             _userId = userId;
         }
+
+        public CharacterService() { }
 
         public bool CreateCharacter(CharacterCreate model)
         {
@@ -39,7 +41,7 @@ namespace WalkingDead.Services
             }
         }
 
-        public IEnumerable<CharacterDetail> GetCharacters()
+        public List<CharacterDetail> GetCharacters()
         {
             using (var context = new ApplicationDbContext())
             {
@@ -57,18 +59,18 @@ namespace WalkingDead.Services
                                     FirstEpisodeId = e.FirstEpisodeId,
                                     LastEpisodeId = e.LastEpisodeId,
                                 });
-                return query.ToArray();
+                return query.ToList();
             }
         }
 
-        public CharacterDetail GetCharacterById( int id)
+        public CharacterDetail GetCharacterById(int id)
         {
             using (var context = new ApplicationDbContext())
             {
                 var entity =
                     context
                         .Characters
-                        .Single(e => e.CharacterId ==id);
+                        .Single(e => e.CharacterId == id);
                 return
                     new CharacterDetail
                     {
@@ -80,14 +82,15 @@ namespace WalkingDead.Services
             }
         }
 
-        public bool UpdateCharacter(CharacterEdit model)
+
+        public bool UpdateCharacter(CharacterEdit model, int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .Characters
-                        .Single(e => e.CharacterId == model.CharacterId && e.AddedByUserId == _userId);
+                        .Single(e => e.CharacterId == id && e.AddedByUserId == _userId);
 
                 entity.Name = model.Name;
                 entity.ActorName = model.ActorName;
