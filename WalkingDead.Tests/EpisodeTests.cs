@@ -29,7 +29,7 @@ namespace WalkingDead.Tests
             EpisodeCreate testEpisode = new EpisodeCreate()
             {
                 SeasonId = 1,
-                EpisodeId = 2,
+                EpisodeId = 1,
                 Title = "Days Gone",
                 Description = "This is a test",
                 AirDate = DateTime.Now
@@ -56,8 +56,51 @@ namespace WalkingDead.Tests
         public void TestGetEpisodeByIDMethod()
         {
             Guid userID = new Guid();
-            int episodeID = 1;
+
+            EpisodeService service = new EpisodeService(userID);
+            EpisodeDetail testDetail = new EpisodeDetail()
+            {
+                SeasonId = 1,
+                EpisodeId = 1,
+                Title = "Days Gone",
+                Description = "This is a test",
+                AirDate = DateTime.Now
+            };
+
+            Episode testEpisode = service.GetEpisodeByID(testDetail.EpisodeId);
+
+            Assert.AreEqual(testDetail.EpisodeId, testEpisode.EpisodeId);
+        }
+
+        [TestMethod]
+        public void TestUpdateEpisodeMethod()
+        {
+            Guid userID = new Guid();
+
+            EpisodeService service = new EpisodeService(userID);
+            EpisodeUpdate updateEpisode = new EpisodeUpdate()
+            {
+                Title = "Banana fun",
+                AirDate = DateTime.Now
+            };
+
+            Assert.IsTrue(service.UpdateEpisode(updateEpisode, 1));
+        }
+
+        [TestMethod]
+        public void TestDeleteEpisodeMethod()
+        {
             
+            Guid userID = new Guid();
+
+            EpisodeService service = new EpisodeService(userID);
+
+            Episode episode = service.GetEpisodeByID(1);
+            userID = episode.AddedByUserID;
+
+            bool wasRemoved = service.DeleteEpisode(1);
+
+            Assert.IsTrue(wasRemoved);
         }
     }
 }

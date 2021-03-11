@@ -11,6 +11,7 @@ namespace WalkingDead.Data
     public class Character
     {
         [Key]
+        [Required]
         public int CharacterId { get; set; }
         [Required]
         public string Name { get; set; }

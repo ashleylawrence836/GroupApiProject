@@ -10,7 +10,6 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "WalkingDeadCharacters.Data.ApplicationDbContext";
         }
 
         protected override void Seed(WalkingDeadCharacters.Data.ApplicationDbContext context)
