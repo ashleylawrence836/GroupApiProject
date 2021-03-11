@@ -19,7 +19,7 @@ namespace WalkingDead.Tests
 
             SeasonCreate testSeason = new SeasonCreate()
             {
-                SeasonId = 2,
+                SeasonId = 1,
                 Location = "The Highway/Hershel's Farm"
             };
 

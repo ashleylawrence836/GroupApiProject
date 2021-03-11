@@ -30,8 +30,8 @@ namespace WalkingDead.Tests
             testCharacterOne.ActorName = "Andrew Lincoln";
             testCharacterOne.WeaponOfChoice = "Gun";
             testCharacterOne.Details = "Kind of a grump";
-            testCharacterOne.FirstEpisodeId = 1;
-            testCharacterOne.LastEpisodeId = 1;
+            testCharacterOne.FirstEpisodeId = 2;
+            testCharacterOne.LastEpisodeId = 2;
 
             bool wasAdded = characterService.CreateCharacter(testCharacterOne);
 
