@@ -36,7 +36,6 @@ namespace WalkingDeadCharacters.Data
         public DbSet<Character> Characters { get; set; }
         public DbSet<Season> Seasons { get; set; }
         public DbSet<Episode> Episodes { get; set; }
-        public DbSet<Location> Locations { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
