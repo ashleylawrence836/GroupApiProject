@@ -16,7 +16,7 @@ namespace WalkingDead.Data
         [Required]
         public string Name { get; set; }
         [Required]
-        public Guid UserId { get; set; }
+        public string ActorName { get; set; }
         [Required]
         public Guid AddedByUserId { get; set; }
         [Required]
