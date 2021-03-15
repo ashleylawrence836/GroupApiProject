@@ -10,14 +10,27 @@ namespace WalkingDead.Data
     public class Character
     {
         [Key]
-        [Display(Name = "Character")]
+        [Required]
+        public int CharacterId { get; set; }
+        [Required]
         public string Name { get; set; }
         [Required]
         public Guid UserId { get; set; }
         [Required]
-        public DateTimeOffset Created { get; set; }
-        public DateTimeOffset Expired { get; set; }
+        public Guid AddedByUserId { get; set; }
+        [Required]
+        public string Details { get; set; }
+        [Required]
+        public string WeaponOfChoice { get; set; }
 
+        [Required]
+        [ForeignKey("FirstAppearance")]
+        public int? FirstEpisodeId { get; set; }
+        public virtual Episode FirstAppearance { get; set; }
+        [Required]
+        [ForeignKey("LastAppearance")]
+        public int? LastEpisodeId { get; set; }
+        public virtual Episode LastAppearance { get; set; }
     }
 
 }

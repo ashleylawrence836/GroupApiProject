@@ -1,0 +1,119 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using WalkingDead.Data;
+using WalkingDead.Models;
+using WalkingDeadCharacters.Data;
+
+namespace WalkingDead.Services
+{
+    public class SeasonService
+    {
+        private readonly Guid _userId;
+
+        public SeasonService(Guid userId)
+        {
+            _userId = userId;
+        }
+
+        public bool CreateSeason(SeasonCreate model)
+        {
+            var entity =
+                new Season()
+                {
+                    SeasonId = model.SeasonId,
+                    Location = model.Location
+                };
+
+            using (var ctx = new ApplicationDbContext())
+            {
+                ctx.Seasons.Add(entity);
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public IEnumerable<SeasonDetail> GetSeasons()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Seasons
+                    .Select(
+                        e =>
+                        new SeasonDetail
+                        {
+                            SeasonId = e.SeasonId,
+                            Location = e.Location,
+                            Episodes = ctx.Episodes.Where(s => s.SeasonId == e.SeasonId).
+                            Select(s =>
+                            new EpisodeDetail
+                            {
+                                SeasonId = s.SeasonId,
+                                EpisodeId = s.EpisodeId,
+                                Title = s.Title,
+                                Description = s.Description,
+                                AirDate = s.AirDate
+                            }).ToList()
+                        });
+
+                return query.ToList();
+            }
+
+        }
+
+        public SeasonDetail GetSeasonById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Seasons
+                    .Single(e => e.SeasonId == id);
+                return
+                    new SeasonDetail
+                    {
+                        SeasonId = entity.SeasonId,
+                        Location = entity.Location
+                    };
+            }
+        }
+
+        public bool UpdateSeason(SeasonEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+
+
+                var entity =
+                    ctx
+                    .Seasons
+                    .Single(e => e.SeasonId == model.SeasonId);
+
+                entity.SeasonId = model.SeasonId;
+                entity.Location = model.Location;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteSeason(int seasonId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Seasons
+                    .Single(e => e.SeasonId == seasonId);
+
+                ctx.Seasons.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+    }
+}
+
+
