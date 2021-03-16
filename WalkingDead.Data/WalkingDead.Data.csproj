@@ -90,6 +90,7 @@
     <Compile Include="Character.cs" />
     <Compile Include="Episode.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Location.cs" />
     <Compile Include="Migrations\202103112130066_again.cs" />
     <Compile Include="Migrations\202103112130066_again.designer.cs">
       <DependentUpon>202103112130066_again.cs</DependentUpon>
