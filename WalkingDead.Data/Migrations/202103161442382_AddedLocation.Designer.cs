@@ -7,13 +7,13 @@ namespace WalkingDead.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class again : IMigrationMetadata
+    public sealed partial class AddedLocation : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(again));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedLocation));
         
         string IMigrationMetadata.Id
         {
-            get { return "202103112130066_again"; }
+            get { return "202103161442382_AddedLocation"; }
         }
         
         string IMigrationMetadata.Source
