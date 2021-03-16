@@ -49,7 +49,7 @@ namespace WalkingDeadCharacters.Controllers
             return Ok();
         }
 
-        /*public IHttpActionResult Put(LocationEdit location, int Id)
+        public IHttpActionResult Put(LocationEdit location, int Id)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -58,17 +58,18 @@ namespace WalkingDeadCharacters.Controllers
             if (!service.UpdateLocation(location))
                 return InternalServerError();
 
-            return Ok();*/
-        
-        /*public IHttpActionResult Delete(int Id)
+            return Ok();
+        }
+
+        public IHttpActionResult Delete(int Id)
         {
             var service = CreateLocationService();
 
-            if (!service.DeleteLocation(id))
+            if (!service.DeleteLocation(Id))
                 return InternalServerError();
 
             return Ok();
-        }*/
-        
+        }
+
     }
 }
