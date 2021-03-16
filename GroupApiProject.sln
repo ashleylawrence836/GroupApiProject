@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalkingDead.Models", "Walki
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalkingDead.Services", "WalkingDead.Services\WalkingDead.Services.csproj", "{F696BDD6-AE1B-42D5-A8ED-CBEB5F801335}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalkingDead.Tests", "WalkingDead.Tests\WalkingDead.Tests.csproj", "{49AB2D53-5DC5-4E41-ADD7-688847E71FE4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{F696BDD6-AE1B-42D5-A8ED-CBEB5F801335}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F696BDD6-AE1B-42D5-A8ED-CBEB5F801335}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F696BDD6-AE1B-42D5-A8ED-CBEB5F801335}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49AB2D53-5DC5-4E41-ADD7-688847E71FE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49AB2D53-5DC5-4E41-ADD7-688847E71FE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49AB2D53-5DC5-4E41-ADD7-688847E71FE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49AB2D53-5DC5-4E41-ADD7-688847E71FE4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

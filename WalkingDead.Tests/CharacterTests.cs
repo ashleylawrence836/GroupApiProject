@@ -20,6 +20,7 @@ namespace WalkingDead.Tests
 
         }
 
+        // PLEASE RUN TestCreateEpisode() METHOD FIRST
         [TestMethod]
 
         public void TestAddandDeleteCharacter()
@@ -30,14 +31,14 @@ namespace WalkingDead.Tests
             testCharacterOne.ActorName = "Andrew Lincoln";
             testCharacterOne.WeaponOfChoice = "Gun";
             testCharacterOne.Details = "Kind of a grump";
-            testCharacterOne.FirstEpisodeId = 2;
-            testCharacterOne.LastEpisodeId = 2;
+            testCharacterOne.FirstEpisodeId = 1;
+            testCharacterOne.LastEpisodeId = 1;
 
             bool wasAdded = characterService.CreateCharacter(testCharacterOne);
 
             Assert.IsTrue(wasAdded);
 
-            bool wasDeleted = characterService.DeleteCharacter(3);
+            bool wasDeleted = characterService.DeleteCharacter(1);
 
             Assert.IsTrue(wasDeleted);
 
@@ -53,8 +54,8 @@ namespace WalkingDead.Tests
             testCharacterOne.ActorName = "Andrew Lincoln";
             testCharacterOne.WeaponOfChoice = "Gun";
             testCharacterOne.Details = "Kind of a grump";
-            testCharacterOne.FirstEpisodeId = 2;
-            testCharacterOne.LastEpisodeId = 2;
+            testCharacterOne.FirstEpisodeId = 1;
+            testCharacterOne.LastEpisodeId = 1;
 
             bool wasAdded = characterService.CreateCharacter(testCharacterOne);
 
@@ -84,7 +85,7 @@ namespace WalkingDead.Tests
             testCharacterOne.Name = "Rick Grimes";
             testCharacterOne.ActorName = "Andrew Lincoln";
 
-            CharacterDetail actualCharacter = characterService.GetCharacterById(4);
+            CharacterDetail actualCharacter = characterService.GetCharacterById(2);
 
             Assert.AreEqual(testCharacterOne.ActorName, actualCharacter.ActorName);
 
