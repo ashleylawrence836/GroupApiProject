@@ -23,5 +23,12 @@ namespace WalkingDead.Tests
 
             Assert.IsTrue(wasCreated);
         }
+
+        [TestMethod]
+        public void TestUpdateLocationMethod()
+        {
+            Guid userId = new Guid();
+            
+        }
     }
 }
