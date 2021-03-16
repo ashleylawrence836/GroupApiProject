@@ -79,6 +79,7 @@
     <Compile Include="CharacterTests.cs" />
     <Compile Include="EpisodeTests.cs" />
     <Compile Include="SeasonTests.cs" />
+    <Compile Include="LocationTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
