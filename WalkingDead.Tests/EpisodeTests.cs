@@ -12,6 +12,7 @@ namespace WalkingDead.Tests
     [TestClass]
     public class EpisodeTests
     {
+        //All tests use the episode made in the first test
         [TestMethod]
         public void TestCreateEpisodeMethod()
         {
@@ -29,7 +30,7 @@ namespace WalkingDead.Tests
             EpisodeCreate testEpisode = new EpisodeCreate()
             {
                 SeasonId = 1,
-                EpisodeId = 2,
+                EpisodeId = 1,
                 Title = "Days Gone",
                 Description = "This is a test",
                 AirDate = DateTime.Now

@@ -10,6 +10,6 @@ namespace WalkingDead.Models
     public class SeasonCreate
     {
         public int SeasonId { get; set; }
-        public string Location { get; set; }
+        public string  Location { get; set; }
     }
 }
