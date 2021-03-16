@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WalkingDead.Models.LocationModels
 {
-    class LocationEdit
+    public class LocationEdit
     {
         public int LocationID { get; set; }
         public string Name { get; set; }
