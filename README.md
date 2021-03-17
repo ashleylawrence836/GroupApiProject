@@ -12,7 +12,7 @@
 ## :heavy_check_mark: *Planning Documents:*
 * ### [Sprint Planning](https://docs.google.com/document/d/1rpOEOMKtr0fG7Nkg6Zpvg0ShkVS2vitRREchStZhi-c/edit?usp=sharing)
 * ### [Trello Agile Planning](https://trello.com/b/8Oj9sSLx/presentationwalkingdeadproject)
-* ### [DbDiagram](https://dbdiagram.io/d/60414163fcdcb6230b22a72e)
+* ### [DbDiagram](https://dbdiagram.io/d/6041306cfcdcb6230b22a3e2)
 
 
 ## :open_book: *Resources:*
