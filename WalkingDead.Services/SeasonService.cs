@@ -69,7 +69,7 @@ namespace WalkingDead.Services
             }
         }
 
-        public bool UpdateSeason(SeasonEdit model)
+        public bool UpdateSeason(SeasonEdit model, int Id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -78,11 +78,18 @@ namespace WalkingDead.Services
                 var entity =
                     ctx
                     .Seasons
-                    .Single(e => e.SeasonId == model.SeasonId);
+                    .Single(e => e.SeasonId == Id);
 
-
+                if (model.SeasonId != 0)
+                {
                 entity.SeasonId = model.SeasonId;
-                entity.StartingLocationId = model.StartingLocationId;
+                }
+
+                if (model.StartingLocationId != 0)
+                {
+                    entity.StartingLocationId = model.StartingLocationId;
+                }
+                
 
                 return ctx.SaveChanges() >= 1;
             }

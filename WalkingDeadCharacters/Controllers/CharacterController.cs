@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using WalkingDead.Data;
 using WalkingDead.Models;
 using WalkingDead.Services;
 
@@ -28,6 +29,11 @@ namespace WalkingDeadCharacters.Controllers
 
             var service = CreateCharacterService();
 
+            if (character == default)
+            {
+                return NotFound();
+            }
+
             if (!service.CreateCharacter(character))
                 return InternalServerError();
 
@@ -46,6 +52,12 @@ namespace WalkingDeadCharacters.Controllers
         {
             CharacterService characterService = CreateCharacterService();
             var character = characterService.GetCharacterById(id);
+
+            if (character == default)
+            {
+                return NotFound();
+            }
+
             return Ok(character);
         }
 
@@ -56,6 +68,7 @@ namespace WalkingDeadCharacters.Controllers
 
             var service = CreateCharacterService();
 
+
             if (!service.UpdateCharacter(character, Id))
                 return InternalServerError();
 
@@ -64,7 +77,14 @@ namespace WalkingDeadCharacters.Controllers
 
         public IHttpActionResult Delete(int id)
         {
-            var service = CreateCharacterService();
+            CharacterService service = CreateCharacterService();
+
+            CharacterDetail deleteCharacter = service.GetCharacterById(id);
+
+            if (deleteCharacter == default)
+            {
+                return NotFound();
+            }
 
             if (!service.DeleteCharacter(id))
                 return InternalServerError();

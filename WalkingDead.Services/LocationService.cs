@@ -81,12 +81,12 @@ namespace WalkingDead.Services
             }
         }
 
-        public bool UpdateLocation(LocationEdit model)
+        public bool UpdateLocation(LocationEdit model, int Id)
         {
             using (var context = new ApplicationDbContext())
             {
                 Location updateLocation = context.Locations.Single
-                    (e => e.LocationId == model.LocationID);
+                    (e => e.LocationId == Id);
 
                 if (model.Name != null)
                 {

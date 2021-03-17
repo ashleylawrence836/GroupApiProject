@@ -91,13 +91,9 @@
     <Compile Include="Episode.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Location.cs" />
-    <Compile Include="Migrations\202103171329580_FKFix.cs" />
-    <Compile Include="Migrations\202103171329580_FKFix.designer.cs">
-      <DependentUpon>202103171329580_FKFix.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202103171439477_FixingFK.cs" />
-    <Compile Include="Migrations\202103171439477_FixingFK.designer.cs">
-      <DependentUpon>202103171439477_FixingFK.cs</DependentUpon>
+    <Compile Include="Migrations\202103171556021_newupdate.cs" />
+    <Compile Include="Migrations\202103171556021_newupdate.designer.cs">
+      <DependentUpon>202103171556021_newupdate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -108,11 +104,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202103171329580_FKFix.resx">
-      <DependentUpon>202103171329580_FKFix.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202103171439477_FixingFK.resx">
-      <DependentUpon>202103171439477_FixingFK.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202103171556021_newupdate.resx">
+      <DependentUpon>202103171556021_newupdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

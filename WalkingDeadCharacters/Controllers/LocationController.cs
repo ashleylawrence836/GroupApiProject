@@ -43,19 +43,26 @@ namespace WalkingDeadCharacters.Controllers
                 return BadRequest(ModelState);
 
             var service = CreateLocationService();
+
+            if (location == default)
+            {
+                return NotFound();
+            }
+
             if (!service.CreateLocation(location))
                 return InternalServerError();
 
             return Ok();
         }
 
-        public IHttpActionResult Put(LocationEdit location)
+        public IHttpActionResult Put(LocationEdit location, int Id)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             var service = CreateLocationService();
-            if (!service.UpdateLocation(location))
+
+            if (!service.UpdateLocation(location, Id))
                 return InternalServerError();
 
             return Ok();
@@ -64,6 +71,13 @@ namespace WalkingDeadCharacters.Controllers
         public IHttpActionResult Delete(int Id)
         {
             var service = CreateLocationService();
+
+            LocationListItem deleteLocation = service.GetLocationById(Id);
+
+            if (deleteLocation == default)
+            {
+                return NotFound();
+            }
 
             if (!service.DeleteLocation(Id))
                 return InternalServerError();

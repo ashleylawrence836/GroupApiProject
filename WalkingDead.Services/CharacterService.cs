@@ -78,7 +78,10 @@ namespace WalkingDead.Services
                         Name = entity.Name,
                         ActorName = entity.ActorName,
                         WeaponOfChoice = entity.WeaponOfChoice,
-                        Details = entity.Details
+                        Details = entity.Details,
+                        CharacterId = entity.CharacterId,
+                        FirstEpisodeId = entity.FirstEpisodeId,
+                        LastEpisodeId = entity.LastEpisodeId,
                     };
             }
         }
@@ -107,12 +110,9 @@ namespace WalkingDead.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity =
-                    ctx
-                        .Characters
-                        .Single(e => e.CharacterId == characterId && e.AddedByUserId == _userId);
+                Character deleteCharacter = ctx.Characters.Single(d => d.CharacterId == characterId && d.AddedByUserId == _userId);
 
-                ctx.Characters.Remove(entity);
+                ctx.Characters.Remove(deleteCharacter);
 
                 return ctx.SaveChanges() == 1;
             }

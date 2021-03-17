@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class FKFix : DbMigration
+    public partial class newupdate : DbMigration
     {
         public override void Up()
         {
@@ -52,12 +52,12 @@
                         Name = c.String(nullable: false),
                         Description = c.String(nullable: false),
                         AddedByUserId = c.Guid(nullable: false),
-                        FirstEpisodeId = c.Int(nullable: false),
-                        LastEpisodeId = c.Int(nullable: false),
+                        FirstEpisodeId = c.Int(),
+                        LastEpisodeId = c.Int(),
                     })
                 .PrimaryKey(t => t.LocationId)
-                .ForeignKey("dbo.Episode", t => t.FirstEpisodeId, cascadeDelete: false)
-                .ForeignKey("dbo.Episode", t => t.LastEpisodeId, cascadeDelete: false)
+                .ForeignKey("dbo.Episode", t => t.FirstEpisodeId)
+                .ForeignKey("dbo.Episode", t => t.LastEpisodeId)
                 .Index(t => t.FirstEpisodeId)
                 .Index(t => t.LastEpisodeId);
             
