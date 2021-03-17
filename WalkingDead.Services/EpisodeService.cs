@@ -48,8 +48,7 @@ namespace WalkingDead.Services
                     EpisodeId = e.EpisodeId,
                     Description = e.Description,
                     Title = e.Title,
-                    AirDate = e.AirDate,
-                    Location = e.MainLocation
+                    AirDate = e.AirDate
                 }) ;
 
                 return query.ToArray();

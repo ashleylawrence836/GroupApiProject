@@ -19,11 +19,11 @@ namespace WalkingDead.Data
         [Required]
         public Guid AddedByUserId { get; set; }
 
-        [Required]
+
         [ForeignKey("FirstAppearance")]
         public int? FirstEpisodeId { get; set; }
         public virtual Episode FirstAppearance { get; set; }
-        [Required]
+
         [ForeignKey("LastAppearance")]
         public int? LastEpisodeId { get; set; }
         public virtual Episode LastAppearance { get; set; }

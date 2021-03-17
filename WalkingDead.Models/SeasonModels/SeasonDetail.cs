@@ -38,7 +38,7 @@ namespace WalkingDead.Models
             }
         }
 
-        public List<int> Episodes
+        public List<EpisodeListItem> Episodes
         {
             get
             {
@@ -47,13 +47,20 @@ namespace WalkingDead.Models
                     var episodes = context.Episodes.Where(
                         e => e.SeasonId == SeasonId);
 
-                    List<int> episodeIds = new List<int>();
+                    List<EpisodeListItem> episodeDetails = new List<EpisodeListItem>();
                     foreach (Episode episode in episodes)
                     {
-                        episodeIds.Add(episode.EpisodeId);
+                        episodeDetails.Add(new EpisodeListItem()
+                        {
+                            SeasonId = episode.SeasonId,
+                            EpisodeId = episode.EpisodeId,
+                            Title = episode.Title,
+                            Description = episode.Description,
+                            AirDate = episode.AirDate
+                        });
                     }
 
-                    return episodeIds;
+                    return episodeDetails;
                 }
             }
         }

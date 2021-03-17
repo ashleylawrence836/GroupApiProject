@@ -21,14 +21,20 @@ namespace WalkingDead.Services
 
         public bool CreateLocation(LocationCreate model)
         {
-            Location newLocation = new Location()
+            Location newLocation = new Location();
+
+            newLocation.Name = model.Name;
+            newLocation.Description = model.Description;
+            if (model.FirstEpisodeID != null)
             {
-                Name = model.Name,
-                Description = model.Description,
-                FirstEpisodeId = model.FirstEpisodeID,
-                LastEpisodeId = model.LastEpisodeID,
-                AddedByUserId = _userId
-            };
+                newLocation.FirstEpisodeId = model.FirstEpisodeID;
+            }
+            if (model.LastEpisodeID != null)
+            {
+                newLocation.LastEpisodeId = model.LastEpisodeID;
+
+            }
+            newLocation.AddedByUserId = _userId;
 
             using (var context = new ApplicationDbContext())
             {
@@ -51,7 +57,7 @@ namespace WalkingDead.Services
                                     LocationID = e.LocationId,
                                     Name = e.Name,
                                     Description = e.Description,
-                                    
+
                                 });
                 return query.ToList();
             }

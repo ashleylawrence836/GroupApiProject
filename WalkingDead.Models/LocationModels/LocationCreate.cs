@@ -14,7 +14,7 @@ namespace WalkingDead.Models
         [Required]
         public string Description { get; set; }
 
-        public int FirstEpisodeID { get; set; }
-        public int LastEpisodeID { get; set; }
+        public int? FirstEpisodeID { get; set; }
+        public int? LastEpisodeID { get; set; }
     }
 }

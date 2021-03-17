@@ -25,6 +25,10 @@ namespace WalkingDead.Models.LocationModels
                 { 
                     Location location = context.Locations.Single(
                         l => l.LocationId == LocationID);
+                    if (location.FirstEpisodeId == null)
+                    {
+                        return null;
+                    }
                     Episode episode = context.Episodes.Single(
                         e => e.EpisodeId == location.FirstEpisodeId);
                     return new EpisodeDetail()
@@ -47,6 +51,10 @@ namespace WalkingDead.Models.LocationModels
                 {
                     Location location = context.Locations.Single(
                         l => l.LocationId == LocationID);
+                    if (location.LastEpisodeId == null)
+                    {
+                        return null;
+                    }
                     Episode episode = context.Episodes.Single(
                         e => e.EpisodeId == location.LastEpisodeId);
                     return new EpisodeDetail()

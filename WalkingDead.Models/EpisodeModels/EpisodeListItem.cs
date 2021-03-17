@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WalkingDead.Data;
+using WalkingDead.Models.LocationModels;
+using WalkingDeadCharacters.Data;
 
 namespace WalkingDead.Models
 {
@@ -17,7 +19,21 @@ namespace WalkingDead.Models
         [Display(Name = "Episode Title")]
         public string Title { get; set; }
         [Display(Name = "Episode Location")]
-        public Location Location { get; set; }
+        public string Location
+        {
+            get
+            {
+                using (var context = new ApplicationDbContext())
+                {
+                    var episode = context.Episodes.Single(
+                        e => e.EpisodeId == EpisodeId);
+                    var location = context.Locations.Single(
+                        l => l.LocationId == episode.LocationId);
+
+                    return location.Name;
+                }
+            }
+        }
         [Display(Name = "Episode Desc")]
         public string Description { get; set; }
         [Display(Name = "Aired On")]
