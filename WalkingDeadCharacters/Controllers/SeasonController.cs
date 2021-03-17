@@ -33,6 +33,9 @@ namespace WalkingDeadCharacters.Controllers
 
             var service = CreateSeasonService();
 
+            if (season == default)
+                return NotFound();
+
             if (!service.CreateSeason(season))
                 return InternalServerError();
 
@@ -43,6 +46,11 @@ namespace WalkingDeadCharacters.Controllers
         {
             SeasonService seasonService = CreateSeasonService();
             var season = seasonService.GetSeasonById(id);
+
+            if (season == default)
+            {
+                return NotFound();
+            }
             return Ok(season);
         }
 
