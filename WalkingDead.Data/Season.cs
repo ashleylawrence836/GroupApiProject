@@ -14,7 +14,9 @@ namespace WalkingDead.Data
         [Key]
         public int SeasonId { get; set; }
         [Required]
-        public string Location { get; set; }
+        [ForeignKey(nameof(StartingLocation))]
+        public int StartingLocationId { get; set; }
+        public Location StartingLocation { get; set; }
         public virtual List<Episode> Episodes { get; set; } = new List<Episode>();
         [Required]
         public Guid AddedByUserId { get; set; }

@@ -59,7 +59,7 @@ namespace WalkingDeadCharacters.Controllers
             EpisodeService episodeService = CreateService();
             Episode episode = episodeService.GetEpisodeByID(episodeId);
 
-            EpisodeDetail detail = new EpisodeDetail()
+            EpisodeListItem detail = new EpisodeListItem()
             {
                 EpisodeId = episode.EpisodeId,
                 Title = episode.Title,

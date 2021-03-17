@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WalkingDead.Data;
 using WalkingDead.Models;
+using WalkingDead.Models.EpisodeModels;
 using WalkingDeadCharacters.Data;
 
 namespace WalkingDead.Services
@@ -25,6 +26,7 @@ namespace WalkingDead.Services
                 EpisodeId = episode.EpisodeId,
                 Title = episode.Title,
                 Description = episode.Description,
+                LocationId = episode.LocationId,
                 AirDate = episode.AirDate,
                 SeasonId = episode.SeasonId,
                 AddedByUserID = _userID
@@ -36,18 +38,18 @@ namespace WalkingDead.Services
             }
         }
 
-        public IEnumerable<EpisodeDetail> GetEpisodes()
+        public IEnumerable<EpisodeListItem> GetEpisodes()
         {
             using (var context = new ApplicationDbContext())
             {
-                var query = context.Episodes.Select(e => new EpisodeDetail
+                var query = context.Episodes.Select(e => new EpisodeListItem
                 {
                     SeasonId = e.SeasonId,
                     EpisodeId = e.EpisodeId,
                     Description = e.Description,
                     Title = e.Title,
                     AirDate = e.AirDate
-                });
+                }) ;
 
                 return query.ToArray();
             }

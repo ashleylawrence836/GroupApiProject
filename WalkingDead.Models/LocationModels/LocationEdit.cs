@@ -12,7 +12,7 @@ namespace WalkingDead.Models.LocationModels
         public string Name { get; set; }
         public string Description { get; set; }
 
-        //public int FirstEpisodeId { get; set; } 
-        //public int LastEpisodeId { get; set; }
+        public int FirstEpisodeId { get; set; } 
+        public int LastEpisodeId { get; set; }
     }
 }
