@@ -49,7 +49,7 @@ namespace WalkingDeadCharacters.Controllers
             return Ok();
         }
 
-        public IHttpActionResult Put(LocationEdit location, int Id)
+        public IHttpActionResult Put(LocationEdit location)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);

@@ -24,7 +24,7 @@ namespace WalkingDead.Services
                 new Season()
                 {
                     SeasonId = model.SeasonId,
-                    Location = model.Location
+                    StartingLocationId = model.StartingLocationId
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -45,18 +45,7 @@ namespace WalkingDead.Services
                         e =>
                         new SeasonDetail
                         {
-                            SeasonId = e.SeasonId,
-                            Location = e.Location,
-                            Episodes = ctx.Episodes.Where(s => s.SeasonId == e.SeasonId).
-                            Select(s =>
-                            new EpisodeDetail
-                            {
-                                SeasonId = s.SeasonId,
-                                EpisodeId = s.EpisodeId,
-                                Title = s.Title,
-                                Description = s.Description,
-                                AirDate = s.AirDate
-                            }).ToList()
+                            SeasonId = e.SeasonId
                         });
 
                 return query.ToList();
@@ -75,8 +64,7 @@ namespace WalkingDead.Services
                 return
                     new SeasonDetail
                     {
-                        SeasonId = entity.SeasonId,
-                        Location = entity.Location
+                        SeasonId = entity.SeasonId
                     };
             }
         }
@@ -92,10 +80,11 @@ namespace WalkingDead.Services
                     .Seasons
                     .Single(e => e.SeasonId == model.SeasonId);
 
-                entity.SeasonId = model.SeasonId;
-                entity.Location = model.Location;
 
-                return ctx.SaveChanges() == 1;
+                entity.SeasonId = model.SeasonId;
+                entity.StartingLocationId = model.StartingLocationId;
+
+                return ctx.SaveChanges() >= 1;
             }
         }
 

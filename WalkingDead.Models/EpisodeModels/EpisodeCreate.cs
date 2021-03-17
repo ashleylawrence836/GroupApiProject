@@ -14,6 +14,8 @@ namespace WalkingDead.Models
         [Required]
         public int EpisodeId { get; set; }
         [Required]
+        public int LocationId { get; set; }
+        [Required]
         public string Title { get; set; }
         [Required]
         public string Description { get; set; }
