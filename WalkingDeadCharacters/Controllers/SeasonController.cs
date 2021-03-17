@@ -54,14 +54,14 @@ namespace WalkingDeadCharacters.Controllers
             return Ok(season);
         }
 
-        public IHttpActionResult Put(SeasonEdit season)
+        public IHttpActionResult Put(SeasonEdit season, int id)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             var service = CreateSeasonService();
 
-            if (!service.UpdateSeason(season))
+            if (!service.UpdateSeason(season, id))
                 return InternalServerError();
 
             return Ok();
@@ -70,6 +70,13 @@ namespace WalkingDeadCharacters.Controllers
         public IHttpActionResult Delete(int id)
         {
             var service = CreateSeasonService();
+
+            SeasonDetail deleteSeason = service.GetSeasonById(id);
+
+            if (deleteSeason == default)
+            {
+                return NotFound();
+            }
 
             if (!service.DeleteSeason(id))
                 return InternalServerError();
