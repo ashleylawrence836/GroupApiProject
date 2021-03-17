@@ -92,6 +92,7 @@
     <Compile Include="CharacterModels\CharacterEdit.cs" />
     <Compile Include="EpisodeModels\EpisodeCreate.cs" />
     <Compile Include="EpisodeModels\EpisodeDetail.cs" />
+    <Compile Include="EpisodeModels\EpisodeListItem.cs" />
     <Compile Include="EpisodeModels\EpisodeUpdate.cs" />
     <Compile Include="LocationModels\LocationCreate.cs" />
     <Compile Include="LocationModels\LocationDetail.cs" />

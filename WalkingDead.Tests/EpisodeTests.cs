@@ -17,11 +17,19 @@ namespace WalkingDead.Tests
         public void TestCreateEpisodeMethod()
         {
             Guid userID = new Guid();
+            LocationCreate testLocation = new LocationCreate()
+            {
+                Name = "TestLocation",
+                Description = "Test"
+            };
+
+            LocationService locationService = new LocationService(userID);
+            locationService.CreateLocation(testLocation);
 
             SeasonCreate testSeason = new SeasonCreate()
             {
                 SeasonId = 1,
-                Location = "The Highway/Hershel's Farm"
+                StartingLocationId = 1,
             };
 
             SeasonService seasonService = new SeasonService(userID);
@@ -33,7 +41,8 @@ namespace WalkingDead.Tests
                 EpisodeId = 1,
                 Title = "Days Gone",
                 Description = "This is a test",
-                AirDate = DateTime.Now
+                AirDate = DateTime.Now,
+                LocationId = 1
             };
 
             EpisodeService service = new EpisodeService(userID);
@@ -46,7 +55,7 @@ namespace WalkingDead.Tests
             Guid userID = new Guid();
 
             EpisodeService service = new EpisodeService(userID);
-            IEnumerable<EpisodeDetail> details = service.GetEpisodes();
+            IEnumerable<EpisodeListItem> details = service.GetEpisodes();
 
             bool wasFound = details.Count() > 0;
 
@@ -59,7 +68,7 @@ namespace WalkingDead.Tests
             Guid userID = new Guid();
 
             EpisodeService service = new EpisodeService(userID);
-            EpisodeDetail testDetail = new EpisodeDetail()
+            EpisodeListItem testDetail = new EpisodeListItem()
             {
                 SeasonId = 1,
                 EpisodeId = 1,

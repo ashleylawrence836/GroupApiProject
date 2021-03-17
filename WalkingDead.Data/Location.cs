@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,13 +19,13 @@ namespace WalkingDead.Data
         [Required]
         public Guid AddedByUserId { get; set; }
 
-        //[Required]
-        //[ForeignKey("FirstAppearance")]
-        //public int? FirstEpisodeId { get; set; }
-        //public virtual Episode FirstAppearance { get; set; }
-        //[Required]
-        //[ForeignKey("LastAppearance")]
-        //public int? LastEpisodeId { get; set; }
-        //public virtual Episode LastAppearance { get; set; }
+        [Required]
+        [ForeignKey("FirstAppearance")]
+        public int? FirstEpisodeId { get; set; }
+        public virtual Episode FirstAppearance { get; set; }
+        [Required]
+        [ForeignKey("LastAppearance")]
+        public int? LastEpisodeId { get; set; }
+        public virtual Episode LastAppearance { get; set; }
     }
 }

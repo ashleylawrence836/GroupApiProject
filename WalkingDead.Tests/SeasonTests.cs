@@ -12,12 +12,13 @@ namespace WalkingDead.Tests
     public class SeasonTests
     {
         //If you tested Episodes first, clear database before testing
+        //Run CreateLocation test first
         [TestMethod]
         public void SeasonCreateDeleteTest()
         {
             SeasonCreate seasonOne = new SeasonCreate();
             seasonOne.SeasonId = 1;
-            seasonOne.Location = "Atlanta";
+            seasonOne.StartingLocationId = 1;
 
             Guid userID = new Guid();
             SeasonService service = new SeasonService(userID);
@@ -35,7 +36,7 @@ namespace WalkingDead.Tests
             Guid userID = new Guid();
             SeasonCreate seasonOne = new SeasonCreate();
             seasonOne.SeasonId = 1;
-            seasonOne.Location = "Atlanta";
+            seasonOne.StartingLocationId = 1;
 
 
             SeasonService service = new SeasonService(userID);
@@ -56,7 +57,6 @@ namespace WalkingDead.Tests
             SeasonService service = new SeasonService(userId);
             SeasonDetail season = new SeasonDetail();
             season.SeasonId = 1;
-            season.Location = "Highway/Hershell's Farm";
 
             SeasonDetail seasonOne = service.GetSeasonById(season.SeasonId);
 
@@ -71,7 +71,7 @@ namespace WalkingDead.Tests
             SeasonEdit update = new SeasonEdit();
 
             update.SeasonId = 1;
-            update.Location = "The Prison";
+            update.StartingLocationId = 1;
 
             Assert.IsTrue(service.UpdateSeason(update));
         }

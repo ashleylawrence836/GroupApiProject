@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WalkingDead.Models
+namespace WalkingDead.Models.EpisodeModels
 {
     public class EpisodeDetail
     {

@@ -25,6 +25,8 @@ namespace WalkingDead.Services
             {
                 Name = model.Name,
                 Description = model.Description,
+                FirstEpisodeId = model.FirstEpisodeID,
+                LastEpisodeId = model.LastEpisodeID,
                 AddedByUserId = _userId
             };
 
@@ -89,6 +91,9 @@ namespace WalkingDead.Services
                 {
                     updateLocation.Description = model.Description;
                 }
+
+                updateLocation.FirstEpisodeId = model.FirstEpisodeId;
+                updateLocation.LastEpisodeId = model.LastEpisodeId;
 
                 return context.SaveChangesAsync().Result >= 1;
             };

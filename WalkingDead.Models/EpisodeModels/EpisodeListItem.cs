@@ -4,22 +4,23 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WalkingDead.Data;
 
 namespace WalkingDead.Models
 {
-    public class EpisodeCreate
+    public class EpisodeListItem
     {
-        [Required]
+        [Display(Name = "Season")]
         public int SeasonId { get; set; }
-        [Required]
+        [Display(Name = "Episode")]
         public int EpisodeId { get; set; }
-        [Required]
-        public int LocationId { get; set; }
-        [Required]
+        [Display(Name = "Episode Title")]
         public string Title { get; set; }
-        [Required]
+        [Display(Name = "Episode Location")]
+        public Location Location { get; set; }
+        [Display(Name = "Episode Desc")]
         public string Description { get; set; }
-        [Required]
+        [Display(Name = "Aired On")]
         public DateTime AirDate { get; set; }
     }
 }
