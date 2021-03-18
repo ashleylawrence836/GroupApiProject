@@ -73,7 +73,7 @@ namespace WalkingDead.Tests
             update.SeasonId = 1;
             update.StartingLocationId = 1;
 
-            Assert.IsTrue(service.UpdateSeason(update));
+            Assert.IsTrue(service.UpdateSeason(update, 1));
         }
 
 
