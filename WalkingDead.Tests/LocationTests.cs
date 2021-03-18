@@ -63,7 +63,7 @@ namespace WalkingDead.Tests
             };
 
             LocationService service = new LocationService(userId);
-            bool wasUpdated = service.UpdateLocation(model);
+            bool wasUpdated = service.UpdateLocation(model, 1);
 
             Assert.IsTrue(wasUpdated);
         }
